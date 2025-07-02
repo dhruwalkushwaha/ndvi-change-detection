@@ -5,43 +5,116 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>NDVI Change Detection Demo</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 2rem; line-height:1.6; }
-    h1 { color: #2C3E50; }
-    a.button { 
-      display:inline-block; margin:1rem 0; padding:0.5rem 1rem; 
-      background:#27AE60; color:#fff; text-decoration:none; border-radius:4px;
+    /* Comic‑book halftone background */
+    body {
+      margin: 0;
+      font-family: 'Comic Sans MS', 'Comic Neue', Arial, sans-serif;
+      color: #eee;
+      background: radial-gradient(circle at 0 0, #222 1px, transparent 1px) 0 0,
+                  radial-gradient(circle at 5px 5px, #222 1px, transparent 1px) 0 0;
+      background-color: #111;
+      background-size: 10px 10px;
+      display: grid;
+      place-items: center;
+      padding: 2rem;
     }
-    .screenshots { display:flex; gap:1rem; flex-wrap:wrap; margin-top:1rem; }
-    .screenshots figure { text-align:center; }
-    .screenshots img { max-width:30%; border:1px solid #ccc; border-radius:4px; }
+    .container {
+      max-width: 900px;
+      width: 100%;
+      background: #1a1a1a;
+      border: 4px solid #f39c12;
+      border-radius: 8px;
+      box-shadow: 0 0 0 4px #e74c3c, 0 0 20px rgba(0,0,0,0.8);
+      padding: 2rem;
+      text-align: center;
+      animation: popIn 0.5s ease-out;
+    }
+    @keyframes popIn {
+      from { transform: scale(0.8); opacity: 0; }
+      to   { transform: scale(1);   opacity: 1; }
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.2rem;
+      text-shadow: 2px 2px #000;
+      color: #f1c40f;
+    }
+    p.subtitle {
+      margin-top: 0;
+      font-style: italic;
+      color: #bdc3c7;
+    }
+    a.button {
+      display: inline-block;
+      margin: 1.5rem 0;
+      padding: 0.75rem 1.5rem;
+      background: #e74c3c;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 50px;
+      box-shadow: 0 4px 0 #c0392b;
+      position: relative;
+    }
+    a.button:active { top: 4px; box-shadow: none; }
+    .screenshots {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+    .screenshots figure {
+      background: #2c3e50;
+      border: 2px solid #f39c12;
+      border-radius: 6px;
+      padding: 0.5rem;
+      width: 30%;
+      min-width: 180px;
+      animation: fadeIn 1s ease-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+    .screenshots img {
+      width: 100%;
+      border-radius: 4px;
+    }
+    figcaption {
+      margin-top: 0.5rem;
+      font-weight: bold;
+      color: #ecf0f1;
+    }
+    @media(max-width:600px) {
+      .screenshots { flex-direction: column; }
+      .screenshots figure { width: 100%; }
+    }
   </style>
 </head>
 <body>
-  <h1>NDVI Change Detection Demo</h1>
-  <p>
-    A geospatial AI proof‑of‑concept built in Google Earth Engine to track land‑use change over Bengaluru 
-    by comparing NDVI from Sentinel‑2 between 2016 and 2024.
-  </p>
-  <p>
-    <a class="button" href="https://code.earthengine.google.com/e5e781df2743a6c13491431141c8ef82" target="_blank">
-      ▶ View the interactive map on Earth Engine
+  <div class="container">
+    <h1>NDVI Change Detection Demo</h1>
+    <p class="subtitle">
+      A geospatial AI proof‑of‑concept built in Google Earth Engine to track land‑use change over Bengaluru by comparing NDVI from Sentinel‑2 between 2016 and 2024.
+    </p>
+    <a class="button" href="https://code.earthengine.google.com/?scriptPath=users/dhruwalkushwaha/land-use-change-demo" target="_blank">
+      💥 View Interactive Map
     </a>
-  </p>
-
-  <div class="screenshots">
-    <figure>
-      <img src="before.png" alt="NDVI 2016">
-      <figcaption>NDVI 2016</figcaption>
-    </figure>
-    <figure>
-      <img src="after.png" alt="NDVI 2024">
-      <figcaption>NDVI 2024</figcaption>
-    </figure>
-    <figure>
-      <img src="change.png" alt="NDVI Change">
-      <figcaption>ΔNDVI (Change)</figcaption>
-    </figure>
+    <div class="screenshots">
+      <figure>
+        <img src="before.png" alt="NDVI 2016">
+        <figcaption>NDVI 2016</figcaption>
+      </figure>
+      <figure>
+        <img src="after.png" alt="NDVI 2024">
+        <figcaption>NDVI 2024</figcaption>
+      </figure>
+      <figure>
+        <img src="change.png" alt="NDVI Change">
+        <figcaption>ΔNDVI (Change)</figcaption>
+      </figure>
+    </div>
   </div>
 </body>
 </html>
-
