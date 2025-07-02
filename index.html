@@ -4,17 +4,43 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>NDVI Change Detection Demo</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 2rem; line-height:1.6; }
+    h1 { color: #2C3E50; }
+    a.button { 
+      display:inline-block; margin:1rem 0; padding:0.5rem 1rem; 
+      background:#27AE60; color:#fff; text-decoration:none; border-radius:4px;
+    }
+    .screenshots { display:flex; gap:1rem; flex-wrap:wrap; margin-top:1rem; }
+    .screenshots img { max-width:30%; border:1px solid #ccc; border-radius:4px; }
+  </style>
 </head>
 <body>
-  <h1>NDVI Change Detection</h1>
-  <p>This is a geospatial AI project using Google Earth Engine to analyze land-use change via NDVI over Bengaluru.</p>
+  <h1>NDVI Change Detection Demo</h1>
   <p>
-    <a href="https://code.earthengine.google.com/?scriptPath=users/YOUR_USERNAME/land-use-change-demo">
-      👉 View the GEE Interactive Map
+    A geospatial AI proof‑of‑concept built in Google Earth Engine to track land‑use change over Bengaluru 
+    by comparing NDVI from Sentinel‑2 between 2016 and 2024.
+  </p>
+  <p>
+    <a class="button" href="YOUR_GEE_SHARE_LINK" target="_blank">
+      ▶ View the interactive map on Earth Engine
     </a>
   </p>
-  <img src="before.png" alt="NDVI 2016" width="300">
-  <img src="after.png" alt="NDVI 2024" width="300">
-  <img src="change.png" alt="NDVI Change" width="300">
+
+  <div class="screenshots">
+    <figure>
+      <img src="before.png" alt="NDVI 2016">
+      <figcaption>NDVI 2016</figcaption>
+    </figure>
+    <figure>
+      <img src="after.png" alt="NDVI 2024">
+      <figcaption>NDVI 2024</figcaption>
+    </figure>
+    <figure>
+      <img src="change.png" alt="NDVI Change">
+      <figcaption>ΔNDVI (Change)</figcaption>
+    </figure>
+  </div>
 </body>
 </html>
+
