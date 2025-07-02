@@ -54,9 +54,9 @@
       font-weight: bold;
       border-radius: 50px;
       box-shadow: 0 4px 0 #c0392b;
-      position: relative;
+      transition: transform 0.1s ease;
     }
-    a.button:active { top: 4px; box-shadow: none; }
+    a.button:active { transform: translateY(4px); box-shadow: none; }
     .screenshots {
       display: flex;
       gap: 1rem;
@@ -66,7 +66,7 @@
     }
     .screenshots figure {
       background: #2c3e50;
-      border: 2px solid #f39c12;
+      border: 2px dashed #f39c12;
       border-radius: 6px;
       padding: 0.5rem;
       width: 30%;
@@ -74,17 +74,19 @@
       animation: fadeIn 1s ease-out;
     }
     @keyframes fadeIn {
-      from { opacity: 0; }
-      to   { opacity: 1; }
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
     .screenshots img {
       width: 100%;
       border-radius: 4px;
+      mix-blend-mode: luminosity;
     }
     figcaption {
       margin-top: 0.5rem;
       font-weight: bold;
       color: #ecf0f1;
+      text-shadow: 1px 1px #000;
     }
     @media(max-width:600px) {
       .screenshots { flex-direction: column; }
@@ -98,7 +100,9 @@
     <p class="subtitle">
       A geospatial AI proof‑of‑concept built in Google Earth Engine to track land‑use change over Bengaluru by comparing NDVI from Sentinel‑2 between 2016 and 2024.
     </p>
-    <a class="button" href="https://code.earthengine.google.com/?scriptPath=users/dhruwalkushwaha/land-use-change-demo" target="_blank">
+    <a class="button"
+       href="https://code.earthengine.google.com/?scriptPath=users/dhruwalkushwaha/land-use-change-demo"
+       target="_blank">
       💥 View Interactive Map
     </a>
     <div class="screenshots">
