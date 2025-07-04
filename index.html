@@ -28,10 +28,11 @@
       max-width: 900px;
       width: 100%;
       position: relative;
+      z-index: 1;
       text-align: center;
       box-shadow: 0 8px 0 #000;
     }
-    /* Dashed accent border */
+    /* Dashed accent border behind panel */
     .panel::before {
       content: '';
       position: absolute;
@@ -39,6 +40,7 @@
       width: calc(100% + 32px);
       height: calc(100% + 32px);
       border: 8px dashed #000;
+      z-index: 0;
     }
     h1 {
       font-family: 'Bangers', cursive;
@@ -67,6 +69,8 @@
       text-shadow: 2px 2px #000;
       box-shadow: 0 4px 0 #000;
       transition: transform 0.1s ease;
+      position: relative;
+      z-index: 2;
     }
     a.button:active {
       transform: translateY(4px);
@@ -77,6 +81,8 @@
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 1rem;
       margin-top: 1.5rem;
+      z-index: 2;
+      position: relative;
     }
     .screenshots figure {
       background: #fff;
@@ -94,6 +100,7 @@
       font-size: 1rem;
       color: #000;
       margin-top: 0.5rem;
+      text-shadow: 1px 1px #fff;
     }
     @media(max-width:600px) {
       h1 { font-size: 2rem; }
